@@ -15,10 +15,12 @@
           <a href="https://github.com/marka2g/recipe_ember">Fork me on GitHub</a>
       </div>
   </div>
+  <header id="recipe-header">
+    <h1>recipes</h1>
+  </header>
   <script type="text/x-handlebars" data-template-name="ingredients">
-    <section id="recipeapp">
-      <header id="header">
-        <h1>recipes</h1>
+    <section id="ingredients-section">
+      <header id="ingredients-header">
           {{input type="text" id="new-ingredient" placeholder="add ingredient" 
               value=newName action="createIngredient"}}
       </header>
