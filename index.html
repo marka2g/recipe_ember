@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>recipes</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/gh-fork-ribbon.css">
+</head>
+<body>
+    <!-- forkme -->
+    <div class="github-fork-ribbon-wrapper right">
+      <div class="github-fork-ribbon">
+          <a href="https://github.com/marka2g/recipe_ember">Fork me on GitHub</a>
+      </div>
+  </div>
+  <script type="text/x-handlebars" data-template-name="ingredients">
+    <section id="recipeapp">
+      <header id="header">
+        <h1>recipes</h1>
+          {{input type="text" id="new-ingredient" placeholder="add ingredient" 
+              value=newName action="createIngredient"}}
+      </header>
+    </section>
+    <section id="ingredients-main">
+      {{input type="checkbox" id="toggle-all" checked=allAreDone}}
+      {{outlet}}
+    </section>
+    <footer id="ingredients-footer">
+      <span id="ingredients-count">
+        <strong>{{remaining}}</strong> {{inflection}} left
+      </span>
+      <ul id="filters">
+        <li>
+          {{#link-to "ingredients.index" activeClass="selected"}}All{{/link-to}}
+        </li>
+        <li>
+          {{#link-to "ingredients.dontHave" activeClass="selected"}}Need To Buy{{/link-to}}
+        </li>
+        <li>
+          {{#link-to "ingredients.have" activeClass="selected"}}Already Got It!{{/link-to}}
+        </li>
+      </ul>
+      {{#if hasCompleted}}
+        <button id="clear-completed" {{action "clearCompleted"}}>
+          Clear completed ({{completed}})
+        </button>
+      {{/if}}
+    </footer>
+
+    <footer id="info">
+      <p>double-click to edit an ingredient</p>
+    </footer>
+
+  </script>
+  <script type="text/x-handlebars" data-template-name="ingredients/index">
+    <ul id="ingredient-list">
+      {{#each itemController="ingredient"}}
+        <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+        {{#if isEditing}}
+          {{edit-ingredient class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+        {{else}}
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
+            <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
+            <button {{action "removeIngredient"}} class="destroy"></button>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </script>
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.4.0.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/controllers/ingredients_controller.js"></script>
+  <script src="js/controllers/ingredient_controller.js"></script>
+  <script src="js/views/edit_ingredient_view.js"></script>
+  <script src="js/models/ingredient.js"></script>
+  <script src="js/models/recipe.js"></script>
+  <script src="js/models/food_category.js"></script>
+  <script src="js/models/step.js"></script> 
+  <script src="tests/runner.js"></script>
+</body>
+</html>
