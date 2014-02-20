@@ -1,11 +1,11 @@
 Recipes.IngredientController = Ember.ObjectController.extend({
   actions: {
     editIngredient: function() {
+
       this.set('isEditing', true);
     },
     acceptChanges: function() {
       this.set('isEditing', false);
-
       if (Ember.isEmpty(this.get('model.name'))) {
         this.send('removeIngredient');
       } else {

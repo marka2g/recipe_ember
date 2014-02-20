@@ -3,7 +3,13 @@
     margin: 20px;
 }
 
+body {
+	background: #eaeaea url('images/white_tiles.png');
+}
 
+#ingredient-list {
+	list-style: none;
+}
 #ingredient-list li.completed label {
 	color: #a9a9a9;
 	text-decoration: line-through;

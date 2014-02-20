@@ -1,24 +1,25 @@
 Recipes.Step = DS.Model.extend({
 	text: DS.attr('string'),
-	recipe: DS.belongsTo('recipe')
+	recipe: DS.belongsTo('recipe'),
+	isCompleted: DS.attr('boolean')
 });
 
 
 Recipes.Step.FIXTURES = [
 	{
 		id: 1,
-		text: "prep work"
+		text: "cut veggies so they blend easier."
 	},
 	{
 		id: 2,
-		text: "bake it"
+		text: "blend it all up."
 	},
 	{
 		id: 3,
-		text: "fry bacon"
+		text: "add ice and blend more."
 	},
 	{
 		id: 4,
-		text: "slice tomatoes"
+		text: "enjoy!"
 	}
 ];
