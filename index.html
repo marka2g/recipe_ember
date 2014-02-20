@@ -69,7 +69,19 @@
     </section>
     <section id="ingredients-main">
       {{input type="checkbox" id="toggle-all" checked=allAreDone}}
-        {{outlet}}
+      <ul id="ingredient-list">
+        {{#each itemController="ingredient"}}
+          <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+          {{#if isEditing}}
+            {{edit-ingredient class="edit" value=name focus-out="acceptChanges" insert-newline="acceptChanges"}}
+          {{else}}
+              {{input type="checkbox" checked=isCompleted class="toggle"}}
+              <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
+              <button {{action "removeIngredient"}} class="destroy"></button>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </section>
     <footer id="ingredients-footer">
       <span id="ingredients-count">
@@ -95,21 +107,6 @@
     <footer id="info">
       <p>double-click to edit an ingredient</p>
     </footer>
-  </script>
-  <script type="text/x-handlebars" data-template-name="ingredients/index">
-    <ul id="ingredient-list">
-      {{#each itemController="ingredient"}}
-        <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
-        {{#if isEditing}}
-          {{edit-ingredient class="edit" value=name focus-out="acceptChanges" insert-newline="acceptChanges"}}
-        {{else}}
-            {{input type="checkbox" checked=isCompleted class="toggle"}}
-            <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
-            <button {{action "removeIngredient"}} class="destroy"></button>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
   </script>
   <script type='text/x-handlebars' data-template-name='steps'>
   </script>
