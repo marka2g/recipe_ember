@@ -1,40 +1,15 @@
 Recipes.Router.map(function() {
 
   this.resource('recipes', {path: '/'}, function(){
-    this.resource('recipe', { path: '/:recipe_id' }, function(){
-      this.resource('ingredients', function(){
-        this.route('dontHave');
-        this.route('have');
-      });
+    this.resource('recipe', { path: '/:recipe_id' });
+    this.resource('ingredients', function(){
+      this.route('dontHave');
+      this.route('have');
     });
-    this.resource('steps');
   });
 
+
 });
-
-
-// Todos.Router.map(function () {
-//   this.resource('todos', { path: '/' }, function () {
-//     // additional child routes will go here later
-//   });
-// });
-
-// // ... additional lines truncated for brevity ...
-
-// Todos.TodosIndexRoute = Ember.Route.extend({
-//   model: function() {
-//     return this.modelFor('todos');
-//   }
-// });
-
-// App.Router.map( function() {
-//   this.resource('groups', function() {
-//     this.resource('users', { path: "/:group_id" }, function(){
-//         this.resource('details', { path: "/:user_id" });
-//     });
-//   });
-// });
-
 
 // recipes
 Recipes.RecipesRoute = Ember.Route.extend({
@@ -73,7 +48,6 @@ Recipes.IngredientsIndexRoute = Ember.Route.extend({
 
 Recipes.IngredientsDontHaveRoute = Ember.Route.extend({
   model: function(){
-// debugger
     return this.store.filter('ingredient', function(ingredient) {
       return !ingredient.get('isCompleted');
     });
@@ -95,4 +69,14 @@ Recipes.IngredientsHaveRoute = Ember.Route.extend({
 });
 
 
-
+//test
+// Recipes.RecipesIngredientsDontHaveRoute = Ember.Route.extend({
+//   model: function(){
+//     return this.store.filter('ingredient', function(ingredient) {
+//       return !ingredient.get('isCompleted');
+//     });
+//   },
+//   renderTemplate: function(controller) {
+//     this.render('ingredients/index', {controller: controller});
+//   }
+// });
