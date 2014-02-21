@@ -1,6 +1,7 @@
 Recipes.IngredientsController = Ember.ArrayController.extend({
 	actions: {
 		createIngredient: function() {
+// debugger
       // Get the ingredient title set by the "new-ingredient" text field
       var name = this.get('newName');
       if (!name.trim()) { return; }
