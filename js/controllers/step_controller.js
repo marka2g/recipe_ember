@@ -1,24 +1,24 @@
-Recipes.IngredientController = Ember.ObjectController.extend({
+Recipes.StepController = Ember.ObjectController.extend({
   actions: {
-    editIngredient: function() {
-      this.set('isEditingIngredient', true);
+    editStep: function() {
+      this.set('isEditingStep', true);
     },
     acceptChanges: function() {
-      this.set('isEditingIngredient', false);
+      this.set('isEditingStep', false);
       if (Ember.isEmpty(this.get('model.name'))) {
-        this.send('removeIngredient');
+        this.send('removeStep');
       } else {
         this.get('model').save();
       }
     },
-    removeIngredient: function() {
-        var ingredient = this.get('model');
-        ingredient.deleteRecord();
-        ingredient.save();
+    removeStep: function() {
+        var step = this.get('model');
+        step.deleteRecord();
+        step.save();
       }
   },
   
-  isEditingIngredient: false,
+  isEditingStep: false,
 
   isCompleted: function(key, value){
     var model = this.get('model');

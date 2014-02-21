@@ -7,14 +7,44 @@ body {
 	background: #eaeaea url('images/white_tiles.png');
 }
 
-#ingredient-list {
-	list-style: none;
+#recipe-header h1 {
+	width: 100%;
+	font-size: 70px;
+	font-weight: bold;
+	text-align: center;
+	color: #b3b3b3;
+	color: rgba(255, 255, 255, 0.3);
+	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	-ms-text-rendering: optimizeLegibility;
+	-o-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
 }
+
+/* ingredients */
 #ingredient-list li.completed label {
 	color: #a9a9a9;
 	text-decoration: line-through;
 }
 
-#recipe-header h1{
-	text-align: center;
+#ingredients-list, #steps-list {
+	list-style: none;
+}
+
+.edit-ingredient {
+	width: 40%;
+}
+
+.destroy-ingredient {
+	
+}
+
+/* step */
+.edit-step {
+	width: 80%;
+}
+
+.destroy-step {
+
 }

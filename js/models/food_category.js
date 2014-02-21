@@ -8,7 +8,7 @@ Recipes.FoodCategory.FIXTURES = [
  {
    id: 1,
    title: 'veg',
-   ingredients: []
+   ingredients: [1,2,4,5]
  },
  {
    id: 2,
@@ -28,7 +28,7 @@ Recipes.FoodCategory.FIXTURES = [
   {
    id: 5,
    title: 'fruit',
-   ingredients: []
+   ingredients: [3,6,7]
  },
  {
  	 id: 6,

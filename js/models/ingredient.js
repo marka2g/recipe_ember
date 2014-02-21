@@ -13,7 +13,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 1,
    measurement: 1,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 1
  },
  {
    id: 2,
@@ -21,7 +22,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 1,
    measurement: 2,
    isCompleted: true,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 1
  },
  {
    id: 3,
@@ -29,7 +31,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 5,
    measurement: 3,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 5
  },
   {
    id: 4,
@@ -37,7 +40,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 1,
    measurement: 4,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 1
  },
   {
    id: 5,
@@ -45,7 +49,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 1,
    measurement: 5,
    isCompleted: false,
-   recipe: null
+   recipe: null,
+   foodCategory: 1
  }, 
   {
    id: 6,
@@ -53,7 +58,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 5,
    measurement: 1,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 5
  },
  {
    id: 7,
@@ -61,7 +67,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 5,
    measurement: 2,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 5
  },
   {
    id: 8,
@@ -69,7 +76,8 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 6,
    measurement: 3,
    isCompleted: false,
-   recipe: 1
+   recipe: 1,
+   foodCategory: 6
  }, 
  {
    id: 9,
@@ -77,6 +85,25 @@ Recipes.Ingredient.FIXTURES = [
    food_category: 6,
    measurement: 4,
    isCompleted: false,
-   recipe: 2
- }
+   recipe: 2,
+   foodCategory: 6
+ },
+ {
+   id: 10,
+   name: 'olive oil',
+   food_category: 6,
+   measurement: 4,
+   isCompleted: false,
+   recipe: 2,
+   foodCategory: 6
+ },
+ {
+   id: 11,
+   name: 'salt',
+   food_category: 6,
+   measurement: 4,
+   isCompleted: false,
+   recipe: 2,
+   foodCategory: 6
+ },
 ];

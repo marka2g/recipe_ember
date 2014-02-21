@@ -1,7 +1,7 @@
 Recipes.Measurement = DS.Model.extend({
 	amount: DS.attr('number'),
-	ingredient: DS.belongsTo('ingredient', {async: true})//,
-	// unit: DS.belongsTo('unit', {async: true})
+	ingredient: DS.belongsTo('ingredient', {async: true}),
+	unit: DS.belongsTo('unit', {async: true})
 })
 
 Recipes.Measurement.FIXTURES = [

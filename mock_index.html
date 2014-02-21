@@ -17,7 +17,6 @@
   </div>
   <script type="text/x-handlebars" data-template-name="application">
     <div class="navbar">
-      {{#link-to 'recipes.index'}}all recipes{{/link-to}}
     </div>
     <header id="recipe-header">
       <h1>recipes</h1>
@@ -34,7 +33,7 @@
     </div>
   </script>
   <script type='text/x-handlebars' data-template-name='recipes/index'>
-    <!-- <h1>All Recipes</h1> -->
+    <h1>All Recipes</h1>
     <ul class='list-unstyled'>
       {{#each}}
         {{recipe-details recipe=this classNames='row' tagName='li'}}
@@ -63,71 +62,34 @@
     </div>
   </script>
   <script type='text/x-handlebars' data-template-name='recipe/ingredients'>
-
-    <section id="ingredients-section">
-      <header id="ingredients-header">
-        {{input type="text" id="new-ingredient" placeholder="add ingredient" value=newName action="createIngredient"}}
-      </header>
-    </section>
-
-    <section id="ingredients-main">
-
-     {{input type="checkbox" id="toggle-all" checked=allAreDone}}
-
-      <ul id="ingredients-list">
-        {{#each itemController="ingredient"}}
-          <li {{bind-attr class="isCompleted:completed isEditingIngredient:editing"}}>
-          <li>
-            <div id="ingredient">
-              {{#if foodCategory}} 
-                {{foodCategory.title}} 
-              {{else}}
-                <span>foodCategory select box here</span>
-              {{/if}}
-            </div>
-            {{#if isEditingIngredient}}
-              {{edit-ingredient class="edit-ingredient" value=name focus-out="acceptChanges" insert-newline="acceptChanges"}}
-            {{else}}
-                {{input type="checkbox" checked=isCompleted class="toggle"}}
-                <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
-                <button {{action "removeIngredient"}} class="destroy-ingredient"></button>
-              {{/if}}
-            <div id="ingredient-measurement">
-              {{this.measurement.amount}} 
-              {{this.measurement.unit.name}} 
-            </div>
-          </li>
-        {{/each}}
-      </ul>
-    </section>
-
+    <ul id="ingredients-list">
+      {{#each}}
+        <li>
+          <div id="ingredient">
+            {{#if this.food_category}} 
+              {{this.food_category}} 
+            {{/if}}
+            {{name}}
+          </div>
+          <div id="ingredient-measurement">
+            {{this.measurement.amount}} 
+            {{this.measurement.unit.name}} 
+          </div>
+        </li>
+      {{/each}}
+    </ul>
   </script>
   <script type='text/x-handlebars' data-template-name='recipe/steps'>
-    <section id="steps-section">
-      <header id="steps-header">
-        {{input type="text" id="new-step" placeholder="add step" value=newName action="createStep"}}
-      </header>
-    </section>
-
-    <section id="ingredients-main">
-      <ul id="steps-list">
-        {{#each itemController="step"}}
-          <li>
-            <div id="step">
-              {{number}}  
-              {{#if isEditingStep}}
-                {{edit-step class="edit-step" value=content.content focus-out="acceptChanges" insert-newline="acceptChanges"}}
-              {{else}}
-                  {{input type="checkbox" checked=isCompleted class="toggle"}}
-                  <label {{action "editStep" on="doubleClick"}}>{{content.content}}</label>
-                  <button {{action "removeStep"}} class="destroy-step"></button>
-                {{/if}}
-            </div>
-          </li>
-        {{/each}}
-      </ul>
-    </section>
-
+    <ul id="steps-list">
+      {{#each}}
+        <li>
+          <div id="step">
+            {{number}}  
+            {{content}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
   </script>
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
@@ -136,15 +98,12 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/views/edit_ingredient_view.js"></script>
-  <script src="js/views/edit_measurement_view.js"></script>
-  <script src="js/views/edit_step_view.js"></script>
   <script src="js/models/recipe.js"></script>
   <script src="js/models/ingredient.js"></script>
   <script src="js/models/measurement.js"></script>
   <script src="js/models/food_category.js"></script>
   <script src="js/models/step.js"></script>
   <script src="js/models/unit.js"></script>
-  <script src="js/controllers/step_controller.js"></script>
   <script src="js/controllers/ingredients_controller.js"></script>
   <script src="js/controllers/ingredient_controller.js"></script>
   <script src="js/controllers/recipes_controller.js"></script>
