@@ -63,9 +63,9 @@
       {{input type="text" id="new-ingredient" placeholder="add ingredient" value=newIngredientName action="createIngredient"}}
 
       <ul id="ingredients-list">
-        {{#each 'ingredients'}}
-          <li>
-            <input type="checkbox" class="toggle">
+        {{#each 'ingredients' itemController="ingredient"}}
+          <li {{bind-attr class="isCompleted:completed"}}>
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
             <label>{{name}}</label>
             <button class="destroy"></button>
           </li>
@@ -78,10 +78,10 @@
        {{input type="text" id="new-step" placeholder="add step" value=newStepContent action="createStep"}}
       
       <ul id="steps-list">
-        {{#each 'steps'}}
-          <li>
-            <input type="checkbox" class="toggle">
-            <label>{{content}}</label>
+        {{#each 'steps' itemController="step"}}
+          <li {{bind-attr class="isCompleted:completed"}}>
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
+            <label>{{bodyContent}}</label>
             <button class="destroy"></button>
           </li>
         {{/each}}
@@ -108,6 +108,7 @@
   <script src="js/models/food_category.js"></script>
   <script src="js/models/step.js"></script>
   <script src="js/models/unit.js"></script>
+  <script src="js/controllers/index_controller.js"></script>
   <script src="js/controllers/step_controller.js"></script>
   <script src="js/controllers/ingredients_controller.js"></script>
   <script src="js/controllers/ingredient_controller.js"></script>

@@ -1,9 +1,9 @@
 Recipes.Ingredient = DS.Model.extend({
-	name: DS.attr('string'),
-	isCompleted: DS.attr('boolean'),
-  measurement: DS.belongsTo('measurement', {async: true}),
-  recipe: DS.belongsTo('recipe', {async: true}),
-  foodCategory: DS.belongsTo('foodCategory', {async: true})
+   name: DS.attr('string'),
+   isCompleted: DS.attr('boolean'),
+   measurement: DS.belongsTo('measurement', {async: true}),
+   recipe: DS.belongsTo('recipe', {async: true}),
+   foodCategory: DS.belongsTo('foodCategory', {async: true})
 });
 
 Recipes.Ingredient.FIXTURES = [
