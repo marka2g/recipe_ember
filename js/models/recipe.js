@@ -13,8 +13,8 @@ Recipes.Recipe.FIXTURES = [
 	},
 	{
 		id: 2,
-		title: "Cous Cous",
-		ingredients: [9, 10, 11],
+		title: "Raspberry Cous Cous",
+		ingredients: [9, 10, 11, 12],
 		steps: [5,6,7]
 	}
 ];

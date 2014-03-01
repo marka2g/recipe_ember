@@ -1,23 +1,6 @@
 Recipes.IngredientsController = Ember.ArrayController.extend({
 	actions: {
-		createIngredient: function() {
-// debugger
-      // Get the ingredient title set by the "new-ingredient" text field
-      var name = this.get('newName');
-      if (!name.trim()) { return; }
-      // Create the new ingredient model
-      var ingredient = this.store.createRecord('ingredient', {
-        name: name,
-        isCompleted: false
-      });
-      // Clear the "New Ingredient" text field
-      this.set('newName', '');
-      // Save the new model
-      ingredient.save();
-    },
-		
 		clearCompleted: function() {
-// debugger
 	    var completed = this.filterBy('isCompleted', true);
 	    completed.invoke('deleteRecord');
 	    completed.invoke('save');

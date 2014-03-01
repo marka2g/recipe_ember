@@ -106,4 +106,14 @@ Recipes.Ingredient.FIXTURES = [
    recipe: 2,
    foodCategory: 6
  },
+  {
+   id: 12,
+   name: 'raspberry',
+   food_category: 6,
+   measurement: 2,
+   isCompleted: false,
+   recipe: 2,
+   foodCategory: 2
+ }
 ];
+
