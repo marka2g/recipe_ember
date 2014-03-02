@@ -5,7 +5,7 @@ Recipes.StepController = Ember.ObjectController.extend({
     },
     acceptChanges: function() {
       this.set('isEditingStep', false);
-      if (Ember.isEmpty(this.get('model.name'))) {
+      if (Ember.isEmpty(this.get('model.bodyContent'))) {
         this.send('removeStep');
       } else {
         this.get('model').save();

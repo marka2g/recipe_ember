@@ -77,33 +77,40 @@
       </ul>
 
       <footer>
-      <p>FIX THIS...</p>
+        <!-- FIX THIS... 4 ingredient -->
         <span id="ingredient-count">
-          <strong>{{remainingIngredients}}</strong> {{ingredientsInflection}} left
+          <strong>{{remainingIngredients}}</strong> {{ingredientsInflection}} left to get...
         </span>
       </footer>
-
     </div>
-
     
     <div class="steps">
        {{input type="text" id="new-step" placeholder="add step" value=newStepContent action="createStep"}}
       
       <ul id="steps-list">
-        
         {{#each 'steps' itemController="step"}}
-          <li {{bind-attr class="isCompleted:completed"}}>
-            {{input type="checkbox" checked=isCompleted class="toggle"}}
-            <label>{{bodyContent}}</label>
-            <button class="destroy"></button>
+          <li {{bind-attr class="isCompleted:completed isEditingStep:editing"}}>
+            {{#if isEditingStep}}
+              {{edit-step class="edit" value=bodyContent focus-out="acceptChanges" insert-newline="acceptChanges"}}
+            {{else}}
+              {{input type="checkbox" checked=isCompleted class="toggle"}}
+              <label {{action "editStep" on="doubleClick"}}>{{bodyContent}}</label>
+              <button class="destroy"></button>
+            {{/if}}
           </li>
         {{/each}}
       </ul>
 
+      <footer>
+        <!-- FIX THIS... 4 step -->
+        <span id="ingredient-count">
+          <strong>{{remainingSteps}}</strong> {{stepsInflection}} left to do...
+        </span>
+      </footer>
+
     </div>
 
   </script>
-
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
