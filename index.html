@@ -70,7 +70,7 @@
             {{else}}
               {{input type="checkbox" checked=isCompleted class="toggle"}}
               <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
-              <button class="destroy"></button>
+              <button {{action "removeIngredient"}} class="destroy"></button>
             {{/if}}
           </li>
         {{/each}}
@@ -95,7 +95,7 @@
             {{else}}
               {{input type="checkbox" checked=isCompleted class="toggle"}}
               <label {{action "editStep" on="doubleClick"}}>{{bodyContent}}</label>
-              <button class="destroy"></button>
+              <button {{action "removeStep"}} class="destroy"></button>
             {{/if}}
           </li>
         {{/each}}
