@@ -64,20 +64,33 @@
 
       <ul id="ingredients-list">
         {{#each 'ingredients' itemController="ingredient"}}
-          <li {{bind-attr class="isCompleted:completed"}}>
-            {{input type="checkbox" checked=isCompleted class="toggle"}}
-            <label>{{name}}</label>
-            <button class="destroy"></button>
+          <li {{bind-attr class="isCompleted:completed isEditingIngredient:editing"}}>
+            {{#if isEditingIngredient}}
+              {{edit-ingredient class="edit" value=name focus-out="acceptChanges" insert-newline="acceptChanges"}}
+            {{else}}
+              {{input type="checkbox" checked=isCompleted class="toggle"}}
+              <label {{action "editIngredient" on="doubleClick"}}>{{name}}</label>
+              <button class="destroy"></button>
+            {{/if}}
           </li>
         {{/each}}
       </ul>
 
+      <footer>
+      <p>FIX THIS...</p>
+        <span id="ingredient-count">
+          <strong>{{remainingIngredients}}</strong> {{ingredientsInflection}} left
+        </span>
+      </footer>
+
     </div>
+
     
     <div class="steps">
        {{input type="text" id="new-step" placeholder="add step" value=newStepContent action="createStep"}}
       
       <ul id="steps-list">
+        
         {{#each 'steps' itemController="step"}}
           <li {{bind-attr class="isCompleted:completed"}}>
             {{input type="checkbox" checked=isCompleted class="toggle"}}

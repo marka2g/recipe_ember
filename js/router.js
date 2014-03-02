@@ -5,10 +5,7 @@ Recipes.Router.map(function(){
   });
 });
 
-
-
 // routes
-
 Recipes.RecipesRoute = Ember.Route.extend({
   model: function(){
     return this.store.findAll('recipe');

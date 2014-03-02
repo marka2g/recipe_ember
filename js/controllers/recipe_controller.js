@@ -20,5 +20,18 @@ Recipes.RecipeController = Ember.ObjectController.extend({
       });
       recipe.get('steps').addObject(step);
     }
-	}
+  }
+
+// fix for ingredients & steps
+// http://emberjs.com/guides/getting-started/displaying-the-number-of-incomplete-todos/
+//   },
+    
+//   remainingIngredients: function() {
+// debugger
+//       return this.filterBy('isCompleted', false).get('length');
+//     }.property('@each.isCompleted'),
+//   ingredientsInflection: function() {
+//     var remaining = this.get('remainingIngredients');
+//     return remaining === 1 ? 'item' : 'items';
+//   }.property('remainingIngredients')
 });

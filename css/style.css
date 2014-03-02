@@ -23,6 +23,12 @@ body {
 }
 
 /* ingredients */
+
+.ingredients {
+	padding-bottom: 10px;
+}
+
+
 #ingredient-list li.completed label {
 	color: #a9a9a9;
 	text-decoration: line-through;
